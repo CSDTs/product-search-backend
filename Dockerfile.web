@@ -1,0 +1,20 @@
+FROM python:3.8-slim
+WORKDIR /code
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+RUN apt-get update 
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+RUN df
+RUN apt-get install -y \
+  sudo \
+  apt-utils \
+  gnupg2 \
+  curl \
+  nodejs \
+  npm \
+  git
+COPY ./requirements.txt /code/requirements.txt
+RUN pip install --upgrade pip \
+    pip install --no-cache-dir --upgrade -r /code/requirements.txt
+COPY ./ /code/
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8181"]

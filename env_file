@@ -1,0 +1,4 @@
+CSDT_USER=neo4j
+CSDT_PASSWORD=csdt
+CSDT_CONTAINER=csdt_neo4j
+CSDT_GRAPH_URI=bolt://csdt_neo4j:7687
