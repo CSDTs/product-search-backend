@@ -5,7 +5,10 @@ The product search repository implements searching for products from Artisanal F
 This code base originally used a GUI, using streamlit, but now only offers an API for searching.
 
 ## Getting started
+### Setting up your local dev environment for Linux
+1. Download neo4j here and follow the instructions to start and launch your instance https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-neo4j-on-ubuntu-20-04
 
+2. 
 ### Quick Versiom
 ```bash
 ./run.sh
@@ -57,9 +60,11 @@ docker compose up # wait a minute or so
 # If you want to select a .csv file, click on the Upload button to select it
 # Click Submit
 # You can verify data is uploaded by going to https://localhost:7474/ and inspecting the database
+#
 ```
-
-
+### Add default or specific database to product search
+- http://127.0.0.1:8000/docs#/default/upload_new_database_upload_new
+- To verify that your product has been added - http://localhost:7474/browser/
 
 ## Older instructions (ignore)
 ### Python Setup
