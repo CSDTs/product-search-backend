@@ -63,7 +63,7 @@ docker compose up # wait a minute or so
 #
 ```
 ### Add default or specific database to product search
-- http://127.0.0.1:8000/docs#/default/upload_new_database_upload_new
+- 
 - To verify that your product has been added - http://localhost:7474/browser/
 
 ## Older instructions (ignore)

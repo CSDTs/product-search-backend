@@ -107,8 +107,7 @@ async def search(query: Search, response_model: List[Craft]):
     return response
 
 @app.post("/upload_new_database/")
-async def upload_new_database(the_upload_file: UploadFile, 
-                              add_dabls_website: str="o"):
+async def upload_new_database(the_upload_file: UploadFile, add_dabls_website: str="o"):
     add_dabls_website = add_dabls_website
     df = pd.read_csv(the_upload_file.file)
     write_to_graph_db(df)
@@ -158,6 +157,7 @@ async def scrape_page(url):
             ## Remove the // from the image URL
             ##
             product_image_url = product.find("img")["src"].replace("//", "")
+            product_url = "https://" + product_image_url
 
             ##
             ## Append the data to the list
@@ -166,14 +166,14 @@ async def scrape_page(url):
                 "artisan": "olive mode",
                 "product name": product_title,
                 "principles": "woman owned, black owned",
-                "materials": "",
-                "processes": "",
+                "materials": ", , ,",
+                "processes": ", , ,",
                 "industrial scale items": "",
                 "regular price": regular_price,
                 "regular price item": regular_price_item,
                 "last price": last_price,
                 "unit price": unit_price,
-                "image": product_image_url,
+                "image": product_url,
                 "url": url
             })
 
@@ -273,8 +273,8 @@ async def scrape_dabls_mbad():
                 "artisan": "Dabls Mbad African Bead Museum",
                 "product name": product_title,
                 "principles": "african american civil rights, african culture, african american culture",
-                "materials": "",
-                "processes": "",
+                "materials": ", , ,",
+                "processes": ", , ,",
                 "industrial scale items": "",
                 "regular price": product_price,
                 "image": image_url,
