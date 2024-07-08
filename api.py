@@ -156,25 +156,24 @@ async def scrape_page(url):
             ##
             ## Remove the // from the image URL
             ##
-            product_image_url = product.find("img")["src"].replace("//", "")
-            product_url = "https://" + product_image_url
+            # product_image_url = product.find("img")["src"].replace("//", "")
+            # product_url = "https://" + product_image_url
 
             ##
             ## Append the data to the list
             ##
             scraped_data.append({
-                "artisan": "olive mode",
-                "product name": product_title,
-                "principles": "woman owned, black owned",
-                "materials": ", , ,",
-                "processes": ", , ,",
-                "industrial scale items": "",
-                "regular price": regular_price,
-                "regular price item": regular_price_item,
-                "last price": last_price,
-                "unit price": unit_price,
-                "image": product_url,
-                "url": url
+                "Artisan": "Olive mode",
+                "Product_name": product_title,
+                "Principles": "woman owned, black owned",
+                "Materials": ", , ,",
+                "Processes": ", , ,",
+                "Industrial_scale_items": "",
+                "Regular_price": regular_price,
+                # "Image": product_url,
+                "Last_price": last_price,
+                "Unit_price": unit_price,
+                "Url": url
             })
 
         return scraped_data
@@ -270,15 +269,15 @@ async def scrape_dabls_mbad():
             ## Append the data to the list
             ##
             scrapped_data.append({
-                "artisan": "Dabls Mbad African Bead Museum",
-                "product name": product_title,
-                "principles": "african american civil rights, african culture, african american culture",
-                "materials": ", , ,",
-                "processes": ", , ,",
-                "industrial scale items": "",
-                "regular price": product_price,
-                "image": image_url,
-                "url": "",
+                "Artisan": "Dabls Mbad African Bead Museum",
+                "Product_name": product_title,
+                "Principles": "black-owned, african american civil rights, african culture, african american culture",
+                "Materials": ", , ,",
+                "Processes": ", , ,",
+                "Industrial_scale_items": "",
+                "Regular_price": product_price,
+                "Image": image_url,
+                "Url": "",
             })
         ##
         ## Create a DataFrame with scraped data
@@ -359,3 +358,8 @@ async def scrape_funkyphil_store():
 async def scrape_data():
     result = await scrape_funkyphil_store()
     return result
+
+
+##
+## scrapping the visual noise website
+##
