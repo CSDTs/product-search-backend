@@ -101,8 +101,9 @@ class ArtisanNeo4jRetriever(Retriever):
             "product", "content", "principles", "the_artisan", "url", "image", "craftID"
         ]
 
-        cypher = "MATCH (c:CraftID)-[r:INSTANCE_OF|:Product|Materials|:Processes|:Principles|:HAS_URL|:HAS_IMG|:MADE]-(n) RETURN c,type(r),n"
-
+        #cypher = "MATCH (c:CraftID)-[r:INSTANCE_OF|:Product|Materials|:Processes|:Principles|:HAS_URL|:HAS_IMG|:MADE]-(n) RETURN c,type(r),n"
+        cypher = "MATCH (c:CraftID)-[r:INSTANCE_OF|Product|Materials|Processes|Principles|HAS_URL|HAS_IMG|MADE]-(n) RETURN c, type(r), n"
+       
         _raw_database = [record.values() for record in app.query_database(cypher)]
 
         df = pd.DataFrame(
